@@ -9,6 +9,12 @@
 </head>
 <body>
 
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo claro y oscuro">
+        🌙
+    </button>
+
+    <div class="page-bg"></div>
+
     <header class="cv-header">
         <div class="container header-grid">
             <div class="header-photo">
@@ -16,8 +22,13 @@
             </div>
 
             <div class="header-content">
+                <div class="brand-mark">
+                    <img src="assets/logo.png" alt="Logo Silvia García">
+                </div>
+
                 <h1>Silvia García</h1>
-                <h2>Instructora de Pilates . Quiromasajista · Instructora de Qigong</h2>
+                <h2>Quiromasajista · Instructora de Pilates · Instructora de Qigong</h2>
+
                 <p class="intro">
                     Profesional del bienestar especializada en masaje terapéutico y deportivo,
                     Pilates y Qigong, con enfoque integral en salud, movimiento y equilibrio cuerpo-mente.
@@ -31,7 +42,7 @@
                 </div>
 
                 <div class="header-actions">
-                    <a href="assets/pilates.pdf" target="_blank" class="btn btn-primary">Descargar CV en PDF</a>
+                    <a href="assets/Quiro.pdf" target="_blank" class="btn btn-primary">Descargar CV en PDF</a>
                     <a href="https://www.silviagarciacuesta.com" target="_blank" class="btn btn-secondary">Ver web profesional</a>
                 </div>
             </div>
@@ -39,8 +50,7 @@
     </header>
 
     <main>
-
-        <section class="section">
+        <section class="section glass">
             <div class="container">
                 <h3>Perfil profesional</h3>
                 <p>
@@ -56,7 +66,7 @@
             </div>
         </section>
 
-        <section class="section alt">
+        <section class="section alt glass">
             <div class="container">
                 <h3>Áreas de especialización</h3>
                 <div class="grid-2">
@@ -76,7 +86,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section glass">
             <div class="container">
                 <h3>Experiencia profesional</h3>
 
@@ -137,7 +147,7 @@
             </div>
         </section>
 
-        <section class="section alt">
+        <section class="section alt glass">
             <div class="container">
                 <h3>Formación académica y profesional</h3>
 
@@ -216,7 +226,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section glass">
             <div class="container">
                 <h3>Competencias profesionales</h3>
                 <div class="grid-2">
@@ -236,7 +246,7 @@
             </div>
         </section>
 
-        <section class="section alt">
+        <section class="section alt glass">
             <div class="container">
                 <h3>Idiomas</h3>
                 <ul class="list-inline">
@@ -247,7 +257,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section glass">
             <div class="container">
                 <h3>Información adicional</h3>
                 <p>
@@ -256,7 +266,6 @@
                 </p>
             </div>
         </section>
-
     </main>
 
     <footer class="cv-footer">
@@ -268,6 +277,28 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('themeToggle');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            toggleBtn.textContent = '☀️';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                toggleBtn.textContent = '☀️';
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleBtn.textContent = '🌙';
+            }
+        });
+    </script>
 
 </body>
 </html>
